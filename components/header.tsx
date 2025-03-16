@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { ChevronRight, Menu } from 'lucide-react';
 import Image from 'next/image';
-import SlideIn from './slide-in'; // Assuming SlideIn is in the same directory
 import clsx from 'clsx';
 import Link from 'next/link';
 
