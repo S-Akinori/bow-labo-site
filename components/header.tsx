@@ -5,6 +5,7 @@ import { ChevronRight, Menu } from 'lucide-react';
 import Image from 'next/image';
 import SlideIn from './slide-in'; // Assuming SlideIn is in the same directory
 import clsx from 'clsx';
+import Link from 'next/link';
 
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -32,12 +33,12 @@ const Header: React.FC = () => {
         </div>
         <nav className="p-4">
           <ul>
-            <li><a href="/" className="block py-2"><span className='text-lg'>トップページ</span><br /><span className='text-xs'>TOPPAGE</span></a></li>
-            <li><a href="/" className="block py-2"><span className='text-lg'>代表メッセージ</span><br /><span className='text-xs'>PROFILE & MESSAGE</span></a></li>
-            <li><a href="/" className="block py-2"><span className='text-lg'>事業内容</span><br /><span className='text-xs'>OUR MISSION</span></a></li>
-            <li><a href="/" className="block py-2"><span className='text-lg'>導入事例</span><br /><span className='text-xs'>CUSTOMERS VOICES</span></a></li>
-            <li><a href="/" className="block py-2"><span className='text-lg'>海外事業</span><br /><span className='text-xs'>OVERSEAS OPERATIONS</span></a></li>
-            <li><a href="/" className="block py-2"><span className='text-lg'>問い合わせ</span><br /><span className='text-xs'>CONTACT</span></a></li>
+            <li><Link href="/" className="block py-2"><span className='text-lg'>トップページ</span><br /><span className='text-xs'>TOPPAGE</span></Link></li>
+            <li><Link href="/" className="block py-2"><span className='text-lg'>代表メッセージ</span><br /><span className='text-xs'>PROFILE & MESSAGE</span></Link></li>
+            <li><Link href="/" className="block py-2"><span className='text-lg'>事業内容</span><br /><span className='text-xs'>OUR MISSION</span></Link></li>
+            <li><Link href="/" className="block py-2"><span className='text-lg'>導入事例</span><br /><span className='text-xs'>CUSTOMERS VOICES</span></Link></li>
+            <li><Link href="/" className="block py-2"><span className='text-lg'>海外事業</span><br /><span className='text-xs'>OVERSEAS OPERATIONS</span></Link></li>
+            <li><Link href="/" className="block py-2"><span className='text-lg'>問い合わせ</span><br /><span className='text-xs'>CONTACT</span></Link></li>
           </ul>
         </nav>
         <div className="">

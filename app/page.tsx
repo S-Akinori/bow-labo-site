@@ -4,13 +4,11 @@ import localFont from "next/font/local";
 import { Noto_Serif_JP } from "next/font/google";
 
 import Image from "next/image";
-import Container from "@/components/container";
 import PageSection from "@/components/page-section";
 import { Card } from "@/components/ui/card";
 
 import { missions } from "@/contents/missions";
 import FadeIn from "@/components/fade-in";
-import SlideIn from "@/components/slide-in";
 
 const silkSerif = localFont({
   src: "../fonts/Silk-Serif-Light-Italic.otf",
@@ -23,6 +21,7 @@ const simplo = localFont({
   weight: "400",
   display: "swap",
 });
+
 
 const notoSerifJP = Noto_Serif_JP({
   weight: "400",
