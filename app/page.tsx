@@ -1,103 +1,119 @@
+import Gallery from "@/components/gallery";
+import clsx from "clsx";
+import localFont from "next/font/local";
+import { Noto_Serif_JP } from "next/font/google";
+
 import Image from "next/image";
+import Container from "@/components/container";
+import PageSection from "@/components/page-section";
+import { Card } from "@/components/ui/card";
+
+import { missions } from "@/contents/missions";
+import FadeIn from "@/components/fade-in";
+import SlideIn from "@/components/slide-in";
+
+const silkSerif = localFont({
+  src: "../fonts/Silk-Serif-Light-Italic.otf",
+  weight: "400",
+  display: "swap",
+});
+
+const simplo = localFont({
+  src: "../fonts/Simplo-Regular.otf",
+  weight: "400",
+  display: "swap",
+});
+
+const notoSerifJP = Noto_Serif_JP({
+  weight: "400",
+  subsets: ["latin"],
+});
+
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      <div style={{ background: "url(/bg-all-reverse.jpg) no-repeat left bottom / cover" }}>
+        <Gallery imagePaths={["/image-top-1.jpg", "/image-top-2.jpg"]} />
+        <div className="inline-block p-4">
+          <FadeIn delay={1000}><p className={clsx([silkSerif.className, 'hidden md:block text-4xl mb-4'])}>Empowering the future of medicine with comprehensive solutions for establishing clinics</p></FadeIn>
+          <FadeIn delay={1000} className="md:hidden absolute right-2 top-[30vh] z-10"><p className={clsx([silkSerif.className, 'text-lg h-96'])} style={{writingMode: 'vertical-rl'}}>Empowering the future of medicine with comprehensive solutions for establishing clinics</p></FadeIn>
+          <FadeIn delay={1500}>
+            <p className={clsx([notoSerifJP.className, 'max-w-max ml-auto relative md:text-xl text-right pl-12 md:pl-40 before:w-12 md:before:w-36 before:block before:absolute before:left-0 before:top-4  md:before:top-1/2 before:h-[1px] before:bg-[#3b3b3b]'])}>クリニック開業の包括的サポートで医療の未来を切り拓く</p>
+          </FadeIn>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+      <PageSection style={{ background: "url(/bg-row-reverse.jpg) no-repeat left top / cover" }}>
+        <div className="">
+          <div className="md:flex bg-linear-to-r from-[#eeeee1] to-[#FFFFFF]">
+            <div className="md:w-1/3 p-4 relative">
+              <FadeIn className="h-52 md:h-auto">
+                <Image src="/image-feature-1.png" fill alt="Image Row 1" className="object-contain h-full" />
+              </FadeIn>
+            </div>
+            <div className="md:w-2/3 p-12">
+              <FadeIn>
+                <h2 className={clsx([silkSerif.className, 'text-5xl mb-4'])}>What we do.</h2>
+              </FadeIn>
+              <FadeIn>
+                <p>
+                  私たちは、クリニックの開業から運営・成長に至るまで、あらゆるプロセスをワンストップで支援する専門コンサルティング会社です。医療業界での長年にわたる実績と、豊富な金融機関とのネットワークを駆使し、スムーズな開業と安定的な経営を実現します。不動産の選定や医療機器の導入、スタッフ採用、マーケティング戦略、資金調達まで、多角的な視点で迅速かつ確実にサポートいたします
+                </p>
+              </FadeIn>
+            </div>
+          </div>
+          <div className="md:flex flex-row-reverse bg-linear-to-r from-[#FFFFFF] to-[#eeeee1]">
+            <div className="md:w-1/3 p-4 relative">
+              <FadeIn className="h-52 md:h-auto">
+                <Image src="/image-feature-2.jpg" fill alt="Image Row 1" className="object-cover h-full" />
+              </FadeIn>
+            </div>
+            <div className="md:w-2/3 p-12">
+              <FadeIn>
+                <p>
+                  私たちは、クリニックの開業から運営・成長に至るまで、あらゆるプロセスをワンストップで支援する専門コンサルティング会社です。医療業界での長年にわたる実績と、豊富な金融機関とのネットワークを駆使し、スムーズな開業と安定的な経営を実現します。不動産の選定や医療機器の導入、スタッフ採用、マーケティング戦略、資金調達まで、多角的な視点で迅速かつ確実にサポートいたします。さらに、将来的な事業拡大や新しい医療サービスの導入を見据え、常に最新の情報やノウハウを取り入れています。開業後のクリニックが長期的に繁栄し続けるために、経営改善や運営指導にも力を入れ、経営者の皆さまの負担を大幅に軽減する仕組みづくりを目指しています。
+                </p>
+              </FadeIn>
+            </div>
+          </div>
+          <div className="md:flex bg-linear-to-r from-[#eeeee1] to-[#FFFFFF]">
+            <div className="md:w-1/3 p-4 relative">
+              <FadeIn className="h-52 md:h-auto">
+                <Image src="/image-feature-3.jpg" fill alt="Image Row 1" className="object-cover h-full" />
+              </FadeIn>
+            </div>
+            <div className="md:w-2/3 p-12">
+              <FadeIn>
+                <p>
+                  株式会社ボーラボとして培ってきた独自の知見を活用し、医療業界が直面する多様な課題に対して最適解を提案いたします。また、銀行や投資家との連携を強化することで、資金繰りや財務戦略面においてもきめ細かなアドバイスを行い、柔軟な経営体制を整えられるよう多方面から支援を行います。
+                </p>
+                <div className="text-right"><Image src='/logo-silver.png' width={300} height={200} alt="Bow Labo" className="ml-auto" /></div>
+              </FadeIn>
+            </div>
+          </div>
+        </div>
+      </PageSection>
+      <PageSection className="bg-linear-to-r from-[#eeeee1] to-[#FFFFFF]">
+        <div className="md:flex justify-center items-center">
+          <FadeIn>
+            <h2 className={clsx([silkSerif.className, 'text-5xl text-center'])}>Our Mission</h2>
+          </FadeIn>
+          <FadeIn delay={300}>
+            <p className={clsx([notoSerifJP.className, 'relative pl-40 ml-8 before:w-36 before:block before:absolute before:left-0 before:top-1/2 before:h-[1px] before:bg-[#3b3b3b]'])}>私たちのミッション</p>
+          </FadeIn>
+        </div>
+        <div className="flex gap-4 flex-wrap justify-center p-8">
+          {missions.map((mission) => (
+            <FadeIn key={mission.id} className="md:w-[30%]" delay={missions.indexOf(mission) * 200}>
+              <Card className="p-8">
+                <div className={clsx([silkSerif.className, 'text-5xl'])}>{mission.id}.</div>
+                <h3 className={clsx([simplo.className, 'text-2xl text-[#d2c9a0]'])}>{mission.title}</h3>
+                <p>{mission.description}</p>
+              </Card>
+            </FadeIn>
+          ))}
+        </div>
+      </PageSection>
+    </>
   );
 }
